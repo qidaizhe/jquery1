@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+ <meta charset="UTF-8">
+<body>
+<p><a href="等你" id="yi">终于等到你</a></p>
+<button>你好</button>
+</body>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    alert($("#yi").attr("href"));
+  });
+});
+</script>
+</html>

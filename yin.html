@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>简单的tab效果</title>
+<style type="text/css">
+* {
+  padding: 0px;
+  margin:0px
+}
+body {
+  text-align: center
+}
+.wrap ul {
+  overflow: hidden
+}
+.wrap li {
+  float: left;
+  list-style: none;
+  margin-right: 10px;
+  cursor: pointer;
+  padding: 2px 5px
+}
+.link {
+  cursor: pointer;
+  color: #F00
+}
+.wrap {
+  width: 200px;
+  margin: 50px auto
+}
+.wrap, .ellipsis {
+  font-size: 12px;
+  width: 200px;
+}
+.tab_div div {
+  display: none;
+  padding: 10px;
+}
+.tab_div {
+  text-align: left;
+  border: 1px #CCC solid;
+  height: 200px;
+  clear: both
+}
+.cur {
+  background: #060;
+  color: #FFF
+}
+#setTab_2{
+  margin-top: 20px;
+}
+</style>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  //tab
+    $("#setTab").setTab();
+});
+  
+/*插件代码*/
+(function ($) {
+  $.fn.setTab = function () {
+    var getTab=$(this),//this指向调用函数的ID
+      panels = getTab.children("div.tab_div").children("div"),
+      tabs = getTab.find("li");
+  
+    return this.each(function(){
+      $(tabs).click(function(e) {
+        var index = $.inArray(this, $(this).parent().find("li"));//this指向li
+        if (panels.eq(index)[0]) {
+          $(tabs).removeClass("cur");
+          $(this).addClass("cur");
+          panels.css("display", "none").eq(index).css("display", "block");
+        }
+      });
+        
+    });
+ }
+})(jQuery);
+  
+  
+</script>
+</head>
+<body class="wrap">
+<div id="setTab">
+ <ul class="tab_nav">
+  <li class="cur">国事</li>
+  <li>军情</li>
+  <li>图片</li>
+ </ul>
+ <div class="tab_div">
+  <div style="display: block">国事</div>
+  <div>军情</div>
+  <div>图片</div>
+ </div>
+</div>
+</body>
+</html>

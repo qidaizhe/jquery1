@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<label>姓名：</label>
+		<input id="yi" type="text" ><br />
+		<label>年龄：</label>
+		<input type="text" /><br />
+		<label>电话：</label>
+		<input type="text" /><br />
+		<label>地址：</label>
+		<input type="text" /><br />
+		<button>确定</button>
+	</body>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
+	<script>
+		$(function(){
+			$("#yi").after($("<br />" +"<label>性别：</label><input type='text'/>"));
+			$("input").after($("<span>该项不能为空</span>"))
+		})
+	</script>
+	</body>
+</html>

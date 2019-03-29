@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*#div1{
+				width: 200px;
+				height: 200px;
+				border: 1px solid #ccc;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}*/
+		</style>
+	</head>
+	<body>
+		<input type="text" name="first" id="first" value="请输入账号" />
+		<input type="text" name="" id="" value="" placeholder="请输入账号2"/>
+		<div id="div1"></div>
+	</body>
+	<script src="js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var txt=$("#first").val();
+		$("#first").on("blur",function(){
+			if($(this).val()==""){
+				$(this).val("请输入账号");
+			}
+		});
+		$("#first").on("focus",function(){
+			if(txt==$(this).val()){
+				$(this).val("");
+			}
+			
+		});
+		
+		$("#div1").css({
+			"width":"200px",
+			"height":"200px",
+			"border":"1px solid #ccc",
+			"position":"absolute",
+			"left":0,
+			"top":0,
+			"background-color":"red"
+		});
+		
+		$("body").on("mousemove",function(event){
+			event = event || window.event;
+			var x=event.clientX-$("#div1").width()/2+"px";
+			var y=event.clientY-$("#div1").height()/2+"px";
+			$("#div1").css({
+				"left":x,
+				"top":y
+			});
+		});
+//		$("body").off("mousemove");
+	</script>
+</html>

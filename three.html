@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width:200px;
+				height: 200px;
+				background: red;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body> 
+  <div class="div1"> 
+  	
+  </div>
+</body>
+<script src="js/jquery-3.3.1.min.js"></script>
+	  <script>
+	  $("body").on("mousemove",function(event){
+			event = event || window.event;
+			var x=event.clientX-$(".div1").width()/2+"px";
+			var y=event.clientY-$(".div1").height()/2+"px";
+			$(".div1").css({
+				"left":x,
+				"top":y
+			});
+		});	
+</script>
+</html>

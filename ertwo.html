@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+			<label>姓名：</label>
+		<input id="yi" type="text" ><br />
+		<label>年龄：</label>
+		<input type="text" /><br />
+		<label>电话：</label>
+		<input type="text" /><br />
+		<label class="address">地址：</label>
+		<input type="text" class="address" />
+		<button>确定</button>
+	</body>
+	<script src=" js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function(){
+			$("#yi").after($("<br />" +"<label>性别：</label><input type='text'/>"));
+			$(".address").remove();  
+		})
+	</script>
+</html>
